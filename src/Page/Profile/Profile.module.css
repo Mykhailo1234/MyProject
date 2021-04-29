@@ -1,0 +1,39 @@
+.header {
+    margin: 63px 0;
+}
+.profile img {
+    border-radius: 80px;
+    margin: 5px 0px 5px 10px;
+    width: 40%;
+}
+.profile {
+    display: flex;
+    border: solid 1px;
+    margin-top: 80px;
+}
+.profile p {
+    border: solid 1px;
+    width: 500px;
+    height: 100px;
+    margin: 50px;
+    text-align: center;
+    padding-top: 35px;
+}
+.frend {
+    border: solid 1px;
+    height: 100px;
+    margin-top: 30px;
+}
+.frend p {
+    text-align: center; 
+    padding-top: 40px;
+}
+.news{
+    border: solid 1px;
+    height: 100px;
+    margin-top: 30px;
+}
+.news{
+    text-align: center; 
+    padding-top: 40px;
+}
