@@ -5,8 +5,7 @@ import NavBar from './components/NavBar'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom"
 
 import { Profile } from './Page/Profile/Profile'
@@ -15,16 +14,17 @@ import { Music } from './Page/Music/Music'
 import { Setting } from './Page/Setting/Setting'
 import { Dialogs } from './Page/Messages/Dialogs'
 
-const App = () => {
+
+const App = (props) => {
   return (
     <Router>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Profile} />
-        <Route exact path="/dialogs" component={Dialogs} />
-        <Route exact path="/news" component={News} />
-        <Route exact path="/music" component={Music} />
-        <Route exact path="/setting" component={Setting} />
+        <Route exact path="/" render={Profile} />
+        <Route exact path="/dialogs" render={Dialogs} />
+        <Route exact path="/news" render={News} />
+        <Route exact path="/music" render={Music} />
+        <Route exact path="/setting" render={Setting} />
       </Switch>
     </Router>
   )
