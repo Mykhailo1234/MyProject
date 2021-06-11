@@ -6,39 +6,30 @@ import { Messegas} from './MessagesItem/Messages'
 
 
 export const Dialogs = (props) => {
-
-    let dialogsData = [
-        { id: 1, name: "Inna" },
-        { id: 2, name: "Misha" },
-        { id: 3, name: "Vadim" },
-        { id: 4, name: "Yulia" }
-    ]
-
-    let messagData = [
-        { id: 1, name: "Hi!" },
-        { id: 2, name: "How are you?" },
-        { id: 3, name: "It's good" },
-        { id: 4, name: "Ok" }
-    ]
-
-
-    let dialogsElements = dialogsData.map((dialog) => {
+    let dialogsElements = props.dialogsData.map((dialog) => {
         return (
             <DialogUser name={dialog.name} id={dialog.id} />
         )
     })
 
-    let messagesElements = messagData.map((messages) => {
+    let messagesElements = props.messagData.map((messages) => {
         return (
-            <Messegas messag={messages.name} id={messages.id} />
+            <Messegas messag={messages.message} id={messages.id} />
         )
     })
 
 
+    let newPostMessages = React.createRef()
+
+    let addPostMessages = () => {
+        let text = newPostMessages.current.value
+        props.addPostMessages(text)
+        newPostMessages.current.value = ''
+    }
+
     return (
         <Container>
             <div className={classes.dialogs}>
-
                 <div className={classes.users}>
                     {dialogsElements}
                 </div>
@@ -46,7 +37,12 @@ export const Dialogs = (props) => {
                 <div className={classes.messegas_users}>
                     {messagesElements}
                 </div>
-
+            </div>
+            <div className={classes.header}>
+                <textarea ref={newPostMessages}></textarea>
+                <div>
+                    <button onClick={addPostMessages}>Add Post</button>
+                </div>
             </div>
         </Container>
     )

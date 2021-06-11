@@ -20,8 +20,17 @@ const App = (props) => {
     <Router>
       <NavBar />
       <Switch>
-        <Route exact path="/" render={Profile} />
-        <Route exact path="/dialogs" render={Dialogs} />
+        <Route exact path="/" render={() => <Profile
+          posts={props.state.profilePage.posts}
+          friend={props.state.friends.friend}
+          addPost={props.addPost}
+        />} />
+        <Route exact path="/dialogs" render={() => <Dialogs
+          dialogsData={props.state.messagesPage.dialogsData}
+          messagData={props.state.messagesPage.messagData}
+          addPostMessages={props.addPostMessages}
+        />
+        } />
         <Route exact path="/news" render={News} />
         <Route exact path="/music" render={Music} />
         <Route exact path="/setting" render={Setting} />
